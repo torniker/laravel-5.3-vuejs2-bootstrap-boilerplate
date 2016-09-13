@@ -15,7 +15,8 @@
           <li v-for="(link, key) in links" :class="{ 'active': key == $route.name }"><router-link :to="link.to">{{ link.text }}</router-link></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><router-link to="/">Login</router-link></li>
+          <li v-if="!isAuthed"><router-link to="/login">Login</router-link></li>
+          <li v-else><a href="/logout" class="link" @click.prevent="logout()">Logout</a></li>
         </ul>
       </div>
     </div>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import Auth from '../auth'
+
 export default {
   data () {
     return {
@@ -31,11 +34,19 @@ export default {
         shop: { to: '/shop', text: 'Shop' },
         blog: { to: '/blog', text: 'Blog' },
         contact: { to: '/contact', text: 'Contact' }
-      }
+      },
+      user: Auth.user
     }
   },
-  created () {
-    console.log(this.$route.name)
+  computed: {
+    isAuthed () {
+      return Auth.user.authenticated
+    }
+  },
+  methods: {
+    logout () {
+      Auth.logout()
+    }
   }
 }
 </script>
