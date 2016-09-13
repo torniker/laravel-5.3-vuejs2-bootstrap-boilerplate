@@ -1,15 +1,11 @@
 <?php
-Route::get('laravel', function () {
-    return ['csrfToken' => csrf_token()];
-});
-
 Route::get('product', function () {
     return [
         ['id' => '123', 'name' => 'dummy product 1', 'price' => '1000'],
         ['id' => '234', 'name' => 'dummy product 2', 'price' => '5'],
         ['id' => '345', 'name' => 'dummy product 3', 'price' => '90151'],
     ];
-});
+})->middleware('auth:api');
 
 $posts = [
     ['id' => '123', 'title' => 'blog post 1', 'body' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'],
