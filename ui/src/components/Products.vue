@@ -38,7 +38,7 @@ export default {
           this.products = response.data
         }, (response) => {
           this.loading = false
-          this.error = response.data
+          this.error = response.data.error
         })
     }
   }

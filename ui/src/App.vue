@@ -9,10 +9,14 @@
 
 <script>
 import Nav from './components/Nav'
+import Auth from './auth'
 
 export default {
   components: {
     'navigation': Nav
+  },
+  created () {
+    Auth.checkAuth()
   }
 }
 </script>
