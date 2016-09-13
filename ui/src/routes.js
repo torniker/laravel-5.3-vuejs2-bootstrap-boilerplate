@@ -3,6 +3,7 @@ import Products from './components/Products'
 import Posts from './components/Posts'
 import Post from './components/Post'
 import Contact from './components/Contact'
+import Login from './components/Login'
 
 module.exports = {
   mode: 'history',
@@ -12,6 +13,7 @@ module.exports = {
     { path: '/shop', name: 'shop', component: Products },
     { path: '/blog', name: 'blog', component: Posts },
     { path: '/blog/:id', name: 'blog', component: Post },
-    { path: '/contact', name: 'contact', component: Contact }
+    { path: '/contact', name: 'contact', component: Contact },
+    { path: '/login', name: 'login', component: Login }
   ]
 }
