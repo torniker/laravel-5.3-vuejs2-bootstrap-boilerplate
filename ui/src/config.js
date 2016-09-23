@@ -1,5 +1,5 @@
 var baseurl = {
-  'development': 'http://lvb.dev/',
+  'development': 'http://localhost:8000/',
   'production': '',
   'testing': ''
 }
